@@ -6,7 +6,7 @@ http://ec2-18-219-250-89.us-east-2.compute.amazonaws.com/~mel/module5_2/calendar
 
 Creative Portion:
 
--Filter events by group
+-Filter events by group <br>
 -Create shared events where all members of the group can 
   -edit
   -delete
