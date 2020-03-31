@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="calendar.css">
+    <script src="calendar.js"></script>
+</head>
+
+<body>
+
+<div class="calendar-container" id="calendarObject">
+<h1 id="welcome-text"">Welcome to WuCalendar!</h1>
+<!-- <button type="button" id="create_event_btn" class="create_event_btn"> Create Event </button><br><br> -->
+
+<div class="month">      
+  <h2 id="month-name"></h2>
+  <ul>
+    <button type="button" id="prev_month_btn" class="prev">&#10094;</button>
+    <button type="button" id="next_month_btn" class="next">&#10095;</button>
+    <li id="monthTitle">
+      <br>
+    </li>
+    <li id="yearTitle"></li>
+  </ul>
+</div>
+
+<ul class="week-title">
+  <li>Su</li>
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+</ul>
+
+<ul class="monthContainer" id="month-container"> 
+  
+</ul>
+
+</div>
+
+<div class="toolbar-container">
+  <div class="toolbar-title-container">
+    <h3 class="toolbar">toolbar</h3>
+  </div>
+  <div class="toolbar-body-container">
+    <div id="forms-container" class="forms-container">
+
+        <form id="login-form" class="login-form" action="" method="">
+          <h2>Log in</h2>
+          <p>
+            <label for="username">Username:</label>
+              <input type="text" name="username2" id="login-username" />
+          </p>
+          <p>
+            <label for="password">Password:</label>
+              <input type="text" name="pass" id="login-password" />
+          </p>
+          <p>
+            <button id="login-submit" name="submit2" value="submit"> 
+              login
+            </button>
+          </p>
+          <div>
+            <p id="error-msg-login">Identification failed. Please try again</p>
+          </div>
+          
+        </form>
+
+        <form class="register-form" action="" method="POST">
+            <h2>Register</h2>
+          <p>
+            <label for="username">Username:</label>
+                <input type="text" name="username" id="username-register" />
+          </p>
+          <p>
+            <label for="First Name">First Name:</label>
+                <input type="text" name="first" id="firstname-register" />
+          </p>
+          <p>
+            <label for="Last Name">Last Name:</label>
+                <input type="text" name="last" id="lastname-register" />
+          </p>
+            <p>
+            <label for="Email">Email:</label>
+                <input type="text" name="email" id="email-register" />
+          </p>
+            <p>
+            <label for="createpass">Create password:</label>
+                <input type="text" name="createpass" id="password-register" />
+          </p>
+          <p>
+            <input id="register-submit" type="submit" name="submit-register" value="submit" />
+          </p>
+          <p id="error-msg-register">Registration failed. Please try again</p>
+      </form>
+
+    </div>
+
+
+    <div id="groups">
+      <form id=form_group action="" method="POST">
+         <button type=submit id="work_group" value="work">Work</button>
+         <button type=submit id="work_group" value="fam">Family</button>
+         <button type=submit id="work_group" value="leisure">Leisure</button>
+         <button type=submit id="work_group" value="apts">Appointments</button>
+      </form>
+    </div>
+    <button type=button id="reset_event_filters">Reset Filters</button>
+
+
+
+    <div>
+      <button class="create-event-btn" id="create-event-btn">Create an event</button>
+    </div>
+    <!-- Create event form -->
+    <div class="event-tools-container" id="event-tools-container">
+      <form class="event-form-container" id="event-form-container" action="">
+        <input class="event-title-input" id="event-title-input" type="text" placeholder="Add Title">
+        <div class="event-choose-time-container">
+          <div class="date-selector">
+            <input class="date-input" type="date" id="date-input-1">
+          </div>
+          <div class="time-dropdown" id="time-dropdown-1">
+            <button class="dropdown-btn" id="time-dropdown-1-btn">12:00</button>
+            <div class="dropdown-content" id="time-dropdown-1-content">
+            </div>
+          </div>
+          <div class="date-selector">
+            <input class="date-input" type="date" id="date-input-2">
+          </div>
+          <div class="time-dropdown" id="time-dropdown-2">
+            <button class="dropdown-btn" id="time-dropdown-2-btn">12:00</button>
+            <div class="dropdown-content" id="time-dropdown-2-content">
+            </div>
+          </div>
+        </div>
+        <!--add group-->
+        <!-- <div class="description-container">
+          <input class="event-description-input" id="group" type="text" placeholder="Add Group Tag">
+        </div> -->
+         <div class="description-container">
+            <select id="group">
+              <option value="work">Work</option>
+              <option value="fam">Family</option>
+              <option value="leisure">Leisure</option>
+              <option value="apts">Appointments</option>
+            </select>
+         </div>
+        
+        <div class="description-container">
+          <input class="event-description-input" type="text" id="event-description-input" placeholder="Add Description">
+        </div>
+        <!--Share with other users-->
+        <div class="description-container">
+            <input class="event-description-input" type="text" id="shared_users" placeholder="Share with">
+        </div>        
+
+        <div class ="create-event-final-container">
+          <button class="create-event-final-btn" id="create-event-final-btn">Add Event</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+	
+
+
+<div class="popup-event-card-body" id="popup-event-card-body">
+    <span class="close">&times;</span>
+
+    <form  id="event-form-container" action="">
+        <input class="event-title-input" id="event-title-input" type="text" placeholder="Add Title">
+        <div class="event-choose-time-container">
+          <div class="date-selector">
+            <input class="date-input" type="date" id="date-input-1">
+          </div>
+          <div class="time-dropdown" id="time-dropdown-1">
+            <button class="dropdown-btn" id="time-dropdown-1-btn">12:00</button>
+            <div class="dropdown-content" id="time-dropdown-1-content">
+            </div>
+          </div>
+          <div class="date-selector">
+            <input class="date-input" type="date" id="date-input-2">
+          </div>
+          <div class="time-dropdown" id="time-dropdown-2">
+            <button class="dropdown-btn" id="time-dropdown-2-btn">12:00</button>
+            <div class="dropdown-content" id="time-dropdown-2-content">
+            </div>
+          </div>
+        </div>
+        <div class="description-container">
+          <input class="event-description-input" type="text" id="event-description-input" placeholder="Add Description">
+        </div>
+        <div class ="create-event-final-container">
+          <button class="create-event-final-btn" id="create-event-final-btn">Add</button>
+        </div>
+
+      </form>
+
+  <!-- <div class="popup-event-title" id="popup-event-title"></div>
+  <div class="popup-event-time-container" id="popup-event-time-container">
+    <div class="popup-event-time-begin" id="popup-event-time-begin"></div>
+    <div class="popup-event-time-end" id="popup-event-time-end"></div>
+  </div>
+  <div class="popup-event-description" id="popup-event-description"></div> -->
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+      <form  id="delete-event" action="" method="">
+          <p><button  type="submit" id="delete_event"><h4>Delete Event</h4> </button></p>       
+      </form>
+
+      <!-- <span class="close">&times;</span> -->
+      <form  id="edit_form" action="" method="">
+
+          <p><input class="event-title-input" id="title-edit" type="text" name="title-edit" placeholder="Add Title"></p>
+          <p><input class="date-input" type="date" id="date-edit" name="date-edit"></p>
+           
+            <input id="start-edit" type="text" name="start-edit" placeholder="Start Time" list="times"/>
+            <p>
+            <datalist id="times">
+              <option value="7:00"></option>
+              <option value="8:00"></option>
+              <option value="9:00"></option>
+              <option value="10:00"></option>
+              <option value="11:00"></option>
+              <option value="12:00"></option>
+              <option value="13:00"></option>
+              <option value="14:00"></option>
+              <option value="15:00"></option>
+              <option value="16:00"></option>
+              <option value="17:00"></option>
+              <option value="18:00"></option>
+              <option value="19:00"></option>
+              <option value="20:00"></option>
+        
+            </datalist>
+          </p>         
+           <input id="end-edit" name="end-edit" type="text" name="end-edit" placeholder="End Time" list="end_times"/>
+            <p>
+            <datalist id="end_times">
+                <option value="7:00"></option>
+                <option value="8:00"></option>
+                <option value="9:00"></option>
+                <option value="10:00"></option>
+                <option value="11:00"></option>
+                <option value="12:00"></option>
+                <option value="13:00"></option>
+                <option value="14:00"></option>
+                <option value="15:00"></option>
+                <option value="16:00"></option>
+                <option value="17:00"></option>
+                <option value="18:00"></option>
+                <option value="19:00"></option>
+                <option value="20:00"></option>
+          
+            </datalist>
+          </p>
+            <p><input type="text" id="description-edit" name="description-edit" placeholder="Add Description"></p>
+            <p><button  type=submit id="edit_event"><h4>Edit Event</h4> </button></p>       
+        </form>
+    </div>
+  </div>
+
+</body>
+
+
+</html>

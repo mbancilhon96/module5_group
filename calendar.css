@@ -1,0 +1,488 @@
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {
+  /* font-family: Verdana, sans-serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+}
+
+.month {
+  padding: 10px;
+  width: 900px;
+  background: lightpink;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.week-title {
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 8%;
+  color: #666;
+  text-align: center;
+}
+/* 
+.days {
+  padding: 15px 0;
+  background: #eee;
+  margin: 0;
+} */
+
+[class*="day"] {
+  display: flex;
+  border: 1px solid black;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  /* padding-left: 50px;
+  padding-right: 50px; */
+  width: 250px; 
+  height: 100px;
+  /* padding: 60px; */
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 9%;
+  text-align: center;
+  margin-bottom: 100px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 15px;
+  background: #1abc9c;
+  color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
+}
+
+.monthContainer {
+  margin-left: -40px;
+  display: flex;
+  width: 900px;
+  height: 900px;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.week-container1 {
+  display: flex;
+  width: 900px;
+  /* padding: 60px; */
+  /* border: 2px solid black; */
+  justify-content: space-between;
+}
+.week-container2 {
+  display: flex;
+  width: 900px;
+  /* padding: 60px; */
+  /* border: 2px solid black; */
+  justify-content: space-between;
+}
+.week-container3 {
+  display: flex;
+  width: 900px;
+  /* padding: 60px; */
+  /* border: 2px solid black; */
+  justify-content: space-between;
+}
+.week-container4 {
+  display: flex;
+  width: 900px;
+  /* padding: 60px; */
+  /* border: 2px solid black; */
+  justify-content: space-between;
+}
+.week-container5 {
+  display: flex;
+  width: 900px;
+  /* padding: 60px; */
+  /* border: 2px solid black; */
+  justify-content: space-between;
+
+}
+
+.toolbar-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 78px;
+}
+
+.toolbar-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 40px;
+  margin-left: 20px;
+  background-color: lightpink;
+}
+
+.toolbar-body-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 628px;
+  margin-left: 20px;
+  border: 1px solid lightgrey;
+}
+
+.forms-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  height: 300px;
+  /* border: 2px solid lightgray; */ 
+}
+
+.login-form {
+  padding-right: 10px;
+}
+
+.event-form-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 30px;
+  width: 450px;
+  height: 420px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 15px 2px rgba(160,160,163,0.33);
+}
+
+.event-title-input {
+  margin: 6px;
+  height: 40px;
+  border-style: hidden;
+  line-height: 90px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+  font-size: 20px;
+}
+
+#event-title-input:focus {
+  border-bottom: 2px solid lightblue;
+}
+
+
+
+::placeholder {
+  color: grey;
+  font-size: 20px;
+}
+
+.event-tools-container {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.create-event-btn {
+  width: 200px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: lightskyblue;
+}
+
+.create-event-btn:hover {
+  background-color: lightgrey;
+}
+
+.create-event-btn:focus{
+  outline: none;
+}
+
+.event-choose-time-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+
+.time-dropdown {
+  margin-left: 10px;
+}
+
+.dropdown-btn {
+  font-size: 15px;
+  background-color:transparent;
+  font-family:Arial;
+  padding:10px 20px;
+  border-radius:3px;
+  margin-right: 10px;
+}
+
+.dropdown-btn:hover {
+  background-color:lightgrey;
+  outline: none;
+}
+
+.dropdown-btn:active {
+  background-color:lightgrey;
+  outline: none;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  padding-left: 17px;
+  width: 78px;
+  height: 125px;
+  overflow: auto;
+}
+
+.dropdown-time-option {
+  padding: 4px;
+}
+
+.date-input {
+  font-size: 12px ;
+  width: 120px;
+  height: 39px;
+}
+
+.event-description-input {
+  margin: 6px;
+  width: 200px;
+  line-height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-style: hidden;
+  border-bottom: 1px solid lightgrey;
+  font-size: 20px;
+  outline: none;
+}
+
+.event-description-input:focus {
+  border-bottom: 2px solid lightblue;
+  outline: none;
+}
+
+.create-event-final-container {
+  position: relative;
+}
+.create-event-final-btn {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  width: 200px;
+  height: 50px;
+  background-color: lightskyblue;
+  margin-right: 10px;
+}
+
+.create-event-final-btn:hover {
+  background-color: lightgrey;
+}
+
+#error-msg-login {
+  display: none;
+  color: red;
+}
+#error-msg-register {
+  display: none;
+  color: red;
+}
+
+
+/*=====FORM =====*/
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+:focus {
+  outline: none;
+}
+
+.event {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 30px;
+  background-color: lightcoral;
+  font-size: 13px;
+  border-radius: 3px;
+  color: white;
+  overflow-x: initial;
+  overflow-y: initial;
+}
+
+.filter-on .event {
+  display: none;
+}
+
+.filter-on .event.filtered {
+  display: block;
+}
+
+.today {
+  background-color: lightcoral;
+}
+
+.popup-event-card-body  {
+  position: absolute;
+  display: flex;
+  display: none;
+  top: 300px;
+  left: 200px;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 30px;
+  width: 450px;
+  height: 420px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 15px 2px rgba(160,160,163,0.33);
+
+}
+/* =====MODAL for EDIT and DELETE events=====
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
